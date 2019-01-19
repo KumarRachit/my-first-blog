@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #C25100;
+    background-color: #DC143C;
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
@@ -19,7 +19,8 @@ h1, h2, h3, h4 {
 }
 
 .date {
-    color: #828282;
+    color: #0000FF;
+   float: right;
 }
 
 .save {
