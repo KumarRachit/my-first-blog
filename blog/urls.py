@@ -10,6 +10,8 @@ urlpatterns = [
      # / – then we need a / again before finishing the URL.
 
      # That means if you enter http://127.0.0.1:8000/post/5/ into your browser, Django will understand that you are looking for a view called post_detail and transfer the information that pk equals 5 to that view.
+     path('post/new/', views.post_new, name='post_new'),
+     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]
 
 # As you can see, we're now assigning a view called post_list to the root URL. This URL pattern will match an empty string and the Django URL resolver will ignore the domain name (i.e., http://127.0.0.1:8000/) that prefixes the full url path. This pattern will tell Django that views.post_list is the right place to go if someone enters your website at the 'http://127.0.0.1:8000/' address.
