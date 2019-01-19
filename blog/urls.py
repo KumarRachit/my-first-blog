@@ -3,7 +3,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-     path('', views.post_list, name='post_list')
+     path('', views.post_list, name='post_list'),
+     path('post/<int:pk>/', views.post_detail, name='post_detail'), # post/<int:pk>/ specifies a URL pattern
+     # post/ means that the URL should begin with the word post followed by a /. So far so good.
+     # <int:pk> – this part is trickier. It means that Django expects an integer value and will transfer it to a view as a variable called pk.
+     # / – then we need a / again before finishing the URL.
+
+     # That means if you enter http://127.0.0.1:8000/post/5/ into your browser, Django will understand that you are looking for a view called post_detail and transfer the information that pk equals 5 to that view.
 ]
 
 # As you can see, we're now assigning a view called post_list to the root URL. This URL pattern will match an empty string and the Django URL resolver will ignore the domain name (i.e., http://127.0.0.1:8000/) that prefixes the full url path. This pattern will tell Django that views.post_list is the right place to go if someone enters your website at the 'http://127.0.0.1:8000/' address.
